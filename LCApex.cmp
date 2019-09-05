@@ -1,0 +1,23 @@
+
+<aura:component controller="LC_controller" implements="forceCommunity:availableForAllPageTypes,flexipage:availableForAllPageTypes,force:hasRecordId" access="global">
+
+   <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+   <aura:attribute name="objClassController" type="LC_controller"/>
+
+    
+            <div class="slds-page-header white" role="banner">
+            <div class="slds-media__body">
+                <p class="slds-page-header__title slds-truncate" title="Lightning Apex">Lightning Apex</p>
+            </div>
+        </div>
+
+    <article class="slds-card">
+  <div class="slds-card__body slds-card__body_inner">
+           The value passed from the apex controller:  {!v.objClassController.accfield}
+                <br/>
+    The value passed from the apex controller:  {!v.objClassController.confield}
+        </div>
+
+</article>
+
+</aura:component>

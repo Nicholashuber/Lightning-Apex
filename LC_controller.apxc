@@ -1,0 +1,30 @@
+public class LC_controller {
+    @AuraEnabled
+    public String accfield { get;set; }
+    
+    @AuraEnabled
+    public String confield { get;set; }
+
+    @AuraEnabled
+    public Account currentRecord  { get;set; }
+    
+    @AuraEnabled
+    public Contact contactRecord  { get;set; }
+
+
+    @AuraEnabled
+    public static LC_controller initClass() {
+        //create class instance
+        LC_controller obj = new LC_controller();
+
+        obj.currentRecord = [SELECT Id,name FROM Account order by CreatedDate desc limit 1];
+        obj.accfield = obj.currentRecord.name;
+        obj.contactRecord = [SELECT Id,name FROM Contact order by CreatedDate desc limit 1];
+		    obj.confield = obj.contactRecord.name;
+        
+        // return class instance
+        return obj;
+    }
+       
+
+}
